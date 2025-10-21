@@ -82,7 +82,7 @@ O projeto é funcional e segue as instruções para sua execução.
 
 Instale as bibliotecas necessárias para o projeto:
 
-```bash
+```
 pip install -r requirements.txt
 
 7.3. Estrutura do Repositório
@@ -97,6 +97,13 @@ O código-fonte e os arquivos de dados estão organizados para fácil manutenç�
 7.4. Execução do Projeto
 Para rodar a simulação e gerar a rota otimizada:
 
-Bash
-
 python main.py
+```
+
+## 8. AUTOR(ES)
+
+Este projeto foi desenvolvido por:
+
+* **Felipe Pardinho** - GitHub: [@CharismatiCloud](https://github.com/CharismatiCloud) - Email: felipepardinho9@gmail.com
+
+---
