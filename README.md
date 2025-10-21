@@ -44,8 +44,6 @@ O modelo de dados implementado representa a topologia urbana da área de atuaç�
 * **Nós (Vértices):** Locais de entrega (com coordenadas X, Y).
 * **Arestas (Pesos):** Ruas interligando os pontos, com peso baseado em distância ou tempo estimado.
 
-***[INSERIR DIAGRAMA DO GRAFO/MODELO AQUI – Gerado por código ou imagem estática]***
-
 ## 6. ANÁLISE DE RESULTADOS E EFICIÊNCIA
 
 A avaliação da solução foi realizada comparando a rota otimizada pela IA com a gestão manual, utilizando métricas adequadas.
