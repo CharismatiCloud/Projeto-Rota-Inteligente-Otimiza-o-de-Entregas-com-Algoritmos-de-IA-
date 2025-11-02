@@ -6,14 +6,11 @@ Este projeto propõe uma solução inteligente para a otimização logística em
 
 **Cliente:** Sabor Express (Empresa local de delivery de alimentos).
 
-**Objetivo Central:** Desenvolver uma solução baseada em grafos e algoritmos de IA, como $A^{*}$ e K-Means, capaz de sugerir as rotas mais eficientes para os entregadores, reduzindo atrasos e aumentando a satisfação dos clientes.
+**Objetivo Central:** Desenvolver uma solução baseada em grafos e algoritmos de IA, capaz de sugerir as rotas mais eficientes para os entregadores, reduzindo atrasos e aumentando a satisfação dos clientes.
 
 ## 2. O DESAFIO
 
-A empresa "Sabor Express" atua na região central da cidade e tem enfrentado grandes desafios no gerenciamento de entregas durante horários de pico. As rotas são definidas manualmente, resultando em:
-* Atrasos nas entregas.
-* Aumento no custo de combustível.
-* Insatisfação dos clientes.
+A empresa "Sabor Express" atua na região central da cidade e tem enfrentado grandes desafios no gerenciamento de entregas durante horários de pico. As rotas são definidas manualmente, resultando em rotas ineficientes que causam atrasos e aumento no custo de combustível.
 
 A missão é utilizar a IA para encontrar o menor caminho entre múltiplos pontos de entrega e otimizar a alocação de pedidos.
 
@@ -22,10 +19,10 @@ A missão é utilizar a IA para encontrar o menor caminho entre múltiplos ponto
 A solução foi estruturada para lidar com o roteamento em duas fases, garantindo eficiência em situações de alta demanda:
 
 ### 3.1. Fase 1: Agrupamento Inteligente de Entregas (Clustering)
-Em situações com muitos pedidos, é utilizada uma estratégia de agrupamento de entregas próximas para criar zonas de entrega eficientes (*clusters*) a serem atribuídas a entregadores específicos.
+O algoritmo K-Means é utilizado para agrupar as entregas em zonas eficientes (*clusters*) a serem atribuídas a entregadores específicos.
 
 ### 3.2. Fase 2: Otimização do Caminho Mínimo
-Para cada grupo (cluster), um algoritmo de busca encontra o percurso ideal, minimizando a distância percorrida e o tempo de entrega entre os pontos.
+Para cada grupo (cluster), uma heurística de busca encontra o percurso ideal para visitar todos os pontos do cluster, minimizando a distância percorrida e o tempo de entrega entre os pontos.
 
 ## 4. ALGORITMOS DE INTELIGÊNCIA ARTIFICIAL
 
@@ -34,15 +31,15 @@ Os seguintes algoritmos de IA foram utilizados para resolver o problema computac
 | Algoritmo | Área da IA | Aplicação no Projeto |
 | :--- | :--- | :--- |
 | **K-Means** | Aprendizado Não Supervisionado (Clustering) | Utilizado para agrupar as entregas em zonas eficientes, otimizando o trabalho dos entregadores. |
-| **$A^{*}$ (A-estrela)** | Algoritmo de Busca Informada/Heurística | Encontra o menor caminho entre múltiplos pontos de entrega, sendo mais eficiente que buscas cegas como BFS/DFS. |
-| **Representação por Grafos** | Estruturas de Dados e Lógica Algorítmica | A cidade é modelada como um grafo, onde os pontos são os bairros/locais de entrega (nós) e as arestas representam as ruas com pesos de distância ou tempo. |
+| **Heurística Gulosa Simplificada (TSP)** | Algoritmo de Busca Heurística | Encontra uma sequência de visitas para cada grupo (resolução simplificada do Problema do Caixeiro Viajante - TSP) após o K-Means, minimizando a distância percorrida. |
+| **Representação por Grafos** | Estruturas de Dados e Lógica Algorítmica | A cidade é modelada como um grafo, onde os pontos são os locais de entrega (nós) e as arestas representam as ruas com pesos de distância ou tempo. |
 
 ## 5. ESTRUTURA E MODELO DO GRAFO
 
 O modelo de dados implementado representa a topologia urbana da área de atuação da "Sabor Express".
 
 * **Nós (Vértices):** Locais de entrega (com coordenadas X, Y).
-* **Arestas (Pesos):** Ruas interligando os pontos, com peso baseado em distância ou tempo estimado.
+* **Arestas (Pesos):** Ruas interligando os pontos, com peso baseado em distância (métrica Euclidiana) ou tempo estimado.
 
 ## 6. ANÁLISE DE RESULTADOS E EFICIÊNCIA
 
@@ -55,14 +52,18 @@ A simulação, utilizando 15 pedidos agrupados em 3 clusters, demonstrou uma mel
 | Cenário | Distância Total (Simulada) | Tempo Estimado (Simulado) |
 | :--- | :--- | :--- |
 | **Rota Manual (Baseada em Experiência)** | **159.62 km** | **319 min** |
-| **Rota Inteligente (K-Means + $A^{*}$)** | **83.71 km** | **167 min** |
+| **Rota Inteligente (K-Means + Heurística)** | **83.71 km** | **167 min** |
 | **Economia Estimada** | **47.55 %** | **47.55 %** |
 
-***[INSERIR GRÁFICO OU OUTPUT DA VISUALIZAÇÃO DA ROTA OTIMIZADA AQUI]***
+**Visualização do Modelo:** O gráfico abaixo representa uma das rotas otimizadas para um dos entregadores, onde os pontos azuis são as entregas e a estrela vermelha é o restaurante.
+
+<img width="1000" height="800" alt="kmeans_clusters" src="https://github.com/user-attachments/assets/d72531c4-cdf7-4b14-a9bb-ab887c8b2578" />
+
 
 #### 6.2. Limitações e Sugestões de Melhoria
 
 **Limitações Atuais:**
+* **Simplificação do Roteamento (TSP):** A implementação da rota é baseada em uma heurística gulosa simplificada (ordenação por X), o que não garante o menor caminho global (Ótimo de Pareto).
 * O modelo de grafo utiliza pesos estáticos, não incorporando dados de tráfego em tempo real.
 
 **Sugestões de Melhoria (Pesquisa e Leitura):**
@@ -82,28 +83,26 @@ O projeto é funcional e segue as instruções para sua execução.
 
 Instale as bibliotecas necessárias para o projeto:
 
-```
+````bash
 pip install -r requirements.txt
+````
 
 7.3. Estrutura do Repositório
-O código-fonte e os arquivos de dados estão organizados para fácil manutenção:
-
+O código-fonte e os arquivos de dados estão organizados para fácil manutenção, demonstrando a visão sistêmica:
+````
 /
-├── src/                  # Código-fonte principal e classes dos algoritmos
-├── data/                 # Arquivos de dados utilizados (ex: CSVs com pontos e grafo)
+├── src/                  # Código-fonte principal e classes dos algoritmos (clustering.py, route_optimization.py)
+├── data/                 # Arquivos de dados gerados (ex: CSVs com pedidos)
 ├── outputs/              # Imagens e gráficos gerados pela execução do código
 ├── requirements.txt      # Lista de bibliotecas necessárias
 └── README.md             # Documentação do Projeto (Este arquivo)
+````
 7.4. Execução do Projeto
 Para rodar a simulação e gerar a rota otimizada:
-
+````
 python main.py
-```
-
-## 8. AUTOR(ES)
-
+````
+8. AUTOR(ES)
 Este projeto foi desenvolvido por:
 
-* **Felipe Pardinho** - GitHub: [@CharismatiCloud](https://github.com/CharismatiCloud) - Email: felipepardinho9@gmail.com
-
----
+Felipe Pardinho - GitHub: @CharismatiCloud - Email: felipepardinho9@gmail.com
