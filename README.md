@@ -83,25 +83,15 @@ O projeto é funcional e segue as instruções para sua execução.
 
 Instale as bibliotecas necessárias para o projeto:
 
-````bash
+```bash
 pip install -r requirements.txt
-````
-
-7.3. Estrutura do Repositório
-O código-fonte e os arquivos de dados estão organizados para fácil manutenção, demonstrando a visão sistêmica:
-````
-/
-├── src/                  # Código-fonte principal e classes dos algoritmos (clustering.py, route_optimization.py)
-├── data/                 # Arquivos de dados gerados (ex: CSVs com pedidos)
-├── outputs/              # Imagens e gráficos gerados pela execução do código
-├── requirements.txt      # Lista de bibliotecas necessárias
-└── README.md             # Documentação do Projeto (Este arquivo)
 ````
 7.4. Execução do Projeto
 Para rodar a simulação e gerar a rota otimizada:
-````
+
+Bash
+
 python main.py
-````
 8. AUTOR(ES)
 Este projeto foi desenvolvido por:
 
