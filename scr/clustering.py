@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
 # Funções que estavam no main.py, mas agora organizadas aqui
-from main import PONTO_RESTAURANTE, OUTPUT_DIR, DATA_DIR
+from config import PONTO_RESTAURANTE, OUTPUT_DIR, DATA_DIR
 
 def preparar_dados(num_pedidos=15):
     """Geração dos dados de teste."""

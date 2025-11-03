@@ -1,7 +1,7 @@
 # src/route_optimization.py
 
 import numpy as np
-from main import PONTO_RESTAURANTE
+from config import PONTO_RESTAURANTE
 
 def heuristica(coord_atual, coord_destino):
     """Função Heurística h(n): Distância Euclidiana (Usada como custo g(n))."""

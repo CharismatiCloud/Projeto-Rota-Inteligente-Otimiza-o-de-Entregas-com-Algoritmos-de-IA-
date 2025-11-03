@@ -7,23 +7,9 @@ import os
 import matplotlib.pyplot as plt
 
 # Importa as funções dos novos módulos
-from src.clustering import preparar_dados, aplicar_kmeans
-from src.route_optimization import heuristica, calcular_rota_gulosa_simples
-
-# ====================================================================
-# CONFIGURAÇÕES GLOBAIS (Mantidas no main para fácil acesso)
-# ====================================================================
-K_ENTREGADORES = 3
-PONTO_RESTAURANTE = (0, 0)
-OUTPUT_DIR = 'outputs'
-DATA_DIR = 'data'
-np.random.seed(42)
-random.seed(42)
-
-# Cria os diretórios para salvar os outputs e dados intermediários
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-os.makedirs(DATA_DIR, exist_ok=True)
-
+from scr.clustering import preparar_dados, aplicar_kmeans
+from scr.route_optimization import heuristica, calcular_rota_gulosa_simples
+from config import K_ENTREGADORES, PONTO_RESTAURANTE, OUTPUT_DIR
 # ====================================================================
 # ORQUESTRADOR PRINCIPAL
 # ====================================================================
