@@ -86,12 +86,28 @@ Instale as bibliotecas necessárias para o projeto:
 ```bash
 pip install -r requirements.txt
 ````
+7.3. Estrutura do Repositório
+O código-fonte e os arquivos de dados estão organizados para fácil manutenção, demonstrando a visão sistêmica:
+```Bash
+/
+├── scr/                  # Código-fonte principal dos algoritmos
+│   ├── __init__.py         # (Necessário para importação)
+│   ├── src_clustering.py   # Módulo para K-Means e preparação de dados
+│   └── src_route_optimization.py # Módulo para heurística de rota
+├── data/                 # Arquivos de dados gerados (CSVs)
+├── outputs/              # Imagens e gráficos gerados pela execução
+├── config.py             # Arquivo de configurações globais
+├── main.py               # Orquestrador principal (ponto de entrada)
+├── requirements.txt      # Lista de bibliotecas necessárias
+└── README.md             # Documentação do Projeto (Este arquivo)
+````
 7.4. Execução do Projeto
 Para rodar a simulação e gerar a rota otimizada:
 
-Bash
+```Bash
 
 python main.py
+````
 8. AUTOR(ES)
 Este projeto foi desenvolvido por:
 
