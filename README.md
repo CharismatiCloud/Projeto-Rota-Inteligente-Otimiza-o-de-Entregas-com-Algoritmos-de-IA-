@@ -112,3 +112,9 @@ python main.py
 Este projeto foi desenvolvido por:
 
 Felipe Pardinho - GitHub: @CharismatiCloud - Email: felipepardinho9@gmail.com
+
+#LINKS ADICIONAIS:
+````
+Pitch - https://youtu.be/zdw5lnx7h9k
+GitHub - https://github.com/CharismatiCloud/Projeto-Rota-Inteligente-Otimiza-o-de-Entregas-com-Algoritmos-de-IA-/tree/main
+````
